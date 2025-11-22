@@ -2,8 +2,21 @@
 .color-primary {
   color: #4e0070;
 }
+
 .color-secondary {
   color: #4c79d3;
+}
+
+.icon-detail {
+  font-size: 50px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.button-default {
+  border-radius: 10px;
+  background: #4e0070;
+  color: #ffffff;
 }
 
 /* Estilo página login */
@@ -31,7 +44,8 @@
   margin: 0 25%;
 }
 
-.button-login:hover {
+.button-login:hover,
+.button-default:hover {
   background: #4c79d3;
   color: #ffffff;
 }
@@ -55,4 +69,12 @@ header {
   border-bottom: 1px solid #bebcbc;
   padding: 5px;
   background-color: #ffffff;
+}
+
+/* Conteúdo */
+
+.info {
+  background-color: #ffffff;
+  border-radius: 20px 20px 0px 0px;
+  padding: 20px 0px;
 }
