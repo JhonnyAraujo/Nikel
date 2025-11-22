@@ -36,3 +36,15 @@
 .link-default:hover {
   color: #4c79d3;
 }
+
+/* Estilo página home da navegação */
+#app {
+  background: linear-gradient(120deg, #ffffff 44.99%, #4c79d3 45%) no-repeat
+    fixed;
+}
+
+header {
+  border-bottom: 1px solid #bebcbc;
+  padding: 5px;
+  background-color: #ffffff;
+}
