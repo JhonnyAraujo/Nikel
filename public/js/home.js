@@ -4,7 +4,11 @@ const session = localStorage.getItem("session");
 let data = { transactions: [] };
 
 document.getElementById("button-logout").addEventListener("click", logout);
-
+document
+  .getElementById("transaction-button")
+  .addEventListener("click", function () {
+    window.location.href = "./transactions.html";
+  });
 // Adiciona lançamento
 document
   .getElementById("transaction-form")
