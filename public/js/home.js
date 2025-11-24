@@ -1,11 +1,36 @@
 const myModal = new bootstrap.Modal("#transaction-modal");
 let logged = sessionStorage.getItem("logged");
 const session = localStorage.getItem("session");
-let data = {
-  transactions: [],
-};
+let data = { transactions: [] };
 
 document.getElementById("button-logout").addEventListener("click", logout);
+
+// Adiciona lançamento
+document
+  .getElementById("transaction-form")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const value = parseFloat(document.getElementById("value-input").value);
+    const description = document.getElementById("description-input").value;
+    const date = document.getElementById("date-input").value;
+    const type = document.querySelector(
+      'input[name="type-input"]:checked'
+    ).value;
+
+    data.transactions.unshift({
+      value: value,
+      type: type,
+      description: description,
+      date: date,
+    });
+
+    saveData(data);
+    e.target.reset();
+    myModal.hide();
+
+    alert("Lançamento adicionado com sucesso.");
+  });
 
 checkeLogged();
 
@@ -22,9 +47,9 @@ function checkeLogged() {
   const dataUser = localStorage.getItem(logged);
   if (dataUser) {
     data = JSON.parse(dataUser);
+    // V
+    data.transactions = data.transactions || [];
   }
-
-  console.data(data);
 }
 
 function logout() {
@@ -32,4 +57,9 @@ function logout() {
   localStorage.removeItem("session");
 
   window.location.href = "./index.html";
+}
+
+function saveData(data) {
+  // localStorage.setItem(data.login, JSON.stringify(data));
+  localStorage.setItem(logged, JSON.stringify(data));
 }
